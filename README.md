@@ -4,6 +4,12 @@
 
 `yarn`
 
+## Endpoints (call in order)
+1. `http://localhost:3000/api [GET]`
+2. `http://localhost:3000/api/sign-in [POST]`
+3. `http://localhost:3000/api/generate-key-pair [POST]`
+4. `http://localhost:3000/api/encrypt [POST]`
+
 ## Test
 
 `yarn test:e2e`
@@ -19,4 +25,4 @@ After generating pair of keys, cache will be updated with user keys.
 
 ## Auth Token
 
-Header: `x-auth-token`
+Header: `x-auth-token` JWT
