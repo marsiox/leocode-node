@@ -1,10 +1,18 @@
 import { MiddlewareConsumer, Module, NestModule } from '@nestjs/common'
+import { RouterModule } from '@nestjs/core'
 import { AppController } from './app.controller'
 import { AppService } from './app.service'
 import { AuthMiddleware } from './middleware/auth.middleware'
 
 @Module({
-  imports: [],
+  imports: [
+    RouterModule.register([
+      {
+        path: 'api',
+        module: AppModule,
+      },
+    ]),
+  ],
   controllers: [AppController],
   providers: [AppService],
 })
