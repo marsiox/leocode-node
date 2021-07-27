@@ -16,8 +16,7 @@ export class AuthMiddleware implements NestMiddleware {
     if (!token) {
       throw new HttpException('Token Required', HttpStatus.BAD_REQUEST)
     }
-
-    jwt.verify(token, passphrase, (err: any, decoded: any) => {
+    jwt.verify(token, passphrase, (err, decoded) => {
       if (err) {
         throw new HttpException('Unauthorized', HttpStatus.UNAUTHORIZED)
       }

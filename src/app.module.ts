@@ -18,6 +18,8 @@ import { AuthMiddleware } from './middleware/auth.middleware'
 })
 export class AppModule implements NestModule {
   configure(consumer: MiddlewareConsumer) {
-    consumer.apply(AuthMiddleware).forRoutes('generate-key-pair', 'encrypt')
+    consumer
+      .apply(AuthMiddleware)
+      .forRoutes('api/generate-key-pair', 'api/encrypt')
   }
 }

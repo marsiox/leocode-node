@@ -17,28 +17,28 @@ describe('AppController (e2e)', () => {
 
   it('/GET', () => {
     return request(app.getHttpServer())
-      .get('/')
+      .get('/api')
       .expect(200)
       .expect({ cached: true })
   })
 
   it('/POST sign-in', () => {
     return request(app.getHttpServer())
-      .post('/sign-in')
+      .post('/api/sign-in')
       .send({ email: 'one@yo.com', password: 'password1' })
       .expect(201)
   })
 
   it('/POST sign-in fails', () => {
     return request(app.getHttpServer())
-      .post('/sign-in')
+      .post('/api/sign-in')
       .send({ email: 'one@yo.com', password: 'password2' })
       .expect(401)
   })
 
   it('/POST generate-key-pair token required', () => {
     return request(app.getHttpServer())
-      .post('/generate-key-pair')
+      .post('/api/generate-key-pair')
       .expect(400)
       .expect({ statusCode: 400, message: 'Token Required' })
   })
